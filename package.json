@@ -1,0 +1,20 @@
+{
+  "name": "emelia",
+  "version": "1.0.0",
+  "description":
+    "This application is usefull for sending survey to a bunch of people and get feedback from them.",
+  "main": "index.js",
+  "engines": {
+    "node": "6.11.3",
+    "npm": "3.10.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["email", "feedback", "survey", "sina"],
+  "author": "Sina Dorostkar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
