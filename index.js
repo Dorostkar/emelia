@@ -3,7 +3,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000; //Heroku  set the port for us
 app.get("/", (req, res) => {
-  res.send({ message: "Root API", deploy: {} });
+  res.send({ message: "secount deploy", deploy: {} });
 });
 
 app.listen(PORT, () => {
