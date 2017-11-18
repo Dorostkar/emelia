@@ -1,8 +1,7 @@
 {
   "name": "emelia",
   "version": "1.0.0",
-  "description":
-    "This application is usefull for sending survey to a bunch of people and get feedback from them.",
+  "description": "This application is usefull for sending survey to a bunch of people and get feedback from them.",
   "main": "index.js",
   "engines": {
     "node": "6.11.3",
@@ -12,11 +11,18 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "keywords": ["email", "feedback", "survey", "sina"],
+  "keywords": [
+    "email",
+    "feedback",
+    "survey",
+    "sina"
+  ],
   "author": "Sina Dorostkar",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
+    "mongoose": "^4.13.4",
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"

@@ -1,9 +1,13 @@
+require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 
 const config = require("./config/config");
 require("./service/passport"); // cuz we didnt export anything, so by this line we just telling to node to just run this module
 const auth = require("./routes/auth");
 const app = express();
+
+//setup Database
 
 //config out router
 app.use("/auth/google", auth);
