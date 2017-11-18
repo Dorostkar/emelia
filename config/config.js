@@ -9,3 +9,4 @@ const db = {
   password: process.env.DB_PASSWORD,
   url: process.env.DB_URL
 };
+module.exports = { db, key };
