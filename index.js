@@ -9,7 +9,7 @@ const app = express();
 
 //setup Database
 mongoose.connect(
-  `mongodb://<${config.db.username}>:<${config.db.password}>@${config.db
+  `mongodb://${config.db.username}:${config.db.password}@${config.db
     .url}/${config.db.name}`
 );
 //config out router
