@@ -11,7 +11,8 @@ passport.use(
     {
       clientID: config.googleClientId,
       clientSecret: config.googleClientSecret,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/auth/google/callback",
+      proxy: true //trust to heroku proxy/it will fix google callback to http problem!
     },
     (accessToken, refreshToken, profile, done) => {
       //1.2
