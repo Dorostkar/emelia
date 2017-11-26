@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import AppBar from "material-ui/AppBar";
 import FlatButton from "material-ui/FlatButton";
 
@@ -12,11 +14,7 @@ class Header extends Component {
       case false:
         return <FlatButton label="Login With Google" href="/auth/google" />;
       default:
-        return (
-          <div>
-            <FlatButton label="Logout" href="/auth/logout" />
-          </div>
-        );
+        return <FlatButton label="Logout" href="/auth/logout" />;
     }
   }
 
@@ -24,7 +22,14 @@ class Header extends Component {
     return (
       <div>
         <AppBar
-          title="Emelia"
+          title={
+            <Link
+              to={this.props.auth ? "/surveys" : "/"}
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Emelia
+            </Link>
+          }
           iconElementLeft={<div />}
           iconElementRight={this.renderContent()}
         />
