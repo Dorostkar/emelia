@@ -10,11 +10,19 @@ router.get(
   })
 );
 //passport-step5
-router.get("/google/callback", passport.authenticate("google")); //the callback function in the passport config will run
+router.get(
+  "/google/callback",
+  passport.authenticate("google"), //the callback function in the passport config will run
+  (req, res) => {
+    //after that callback finish we will redirect user to servey route (react)
+    res.redirect("/surveys");
+  }
+);
 
 //passport-step6
-router.get("/logout", (req, res) => {
+router.get("/logout/", (req, res) => {
   req.logout(); //it attached automaticly to request by passport.
-  res.send(req.user);
+  // res.send(req.user);
+  res.redirect("/");
 });
 module.exports = router;

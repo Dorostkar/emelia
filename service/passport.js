@@ -14,19 +14,17 @@ passport.use(
       callbackURL: "/auth/google/callback",
       proxy: true //trust to heroku proxy/it will fix google callback to http problem!
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       //1.2
-      User.findOne({ googleId: profile.id }).then(userExist => {
-        if (userExist) {
-          //call done to tell to strategy we have done the process off authentication
-          //we pass user to done() to after in serializeuser we can have it as a argument.
-          done(null, userExist);
-        } else {
-          new User({ googleId: profile.id }).save().then(user => {
-            done(null, user);
-          });
-        }
-      });
+      const userExist = await User.findOne({ googleId: profile.id });
+
+      if (userExist) {
+        //call done to tell to strategy we have done the process off authentication
+        //we pass user to done() to after in serializeuser we can have it as a argument.
+        return done(null, userExist);
+      }
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );
